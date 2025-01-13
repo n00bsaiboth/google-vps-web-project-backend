@@ -22,17 +22,17 @@ import logger         from './logger.js'
 // Tarkista vaaditut ympäristömuuttujat
 //
 
-const todoAvain = process.env.TODO_AVAIN ||'salainenAvain123' 
+const todoAvain = process.env.TODO_AVAIN || 'salainenAvain123' 
 
 if(!todoAvain) {
-  logger.fatal('Aseta TODO_AVAIN ympäristömuuttuja')
+  logger.fatal('Setup the TODO_AVAIN environment variable. ')
   process.exit(1)
 }
 
-const mongoUri = process.env.MONGO_URI
+const mongoUri = process.env.MONGO_URI || 'mongodb://john:doe@openinnovations.io:27017/google-vps-web-project'
 
 if(!mongoUri) {
-  logger.fatal('Aseta MONGO_URI ympäristömuuttuja')
+  logger.fatal('Setup the MONGO_URI environment variable. ')
   process.exit(1)
 }
 
