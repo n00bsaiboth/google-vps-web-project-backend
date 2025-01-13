@@ -21,29 +21,32 @@ import logger         from './logger.js'
 //
 // Tarkista vaaditut ympäristömuuttujat
 //
-if(!process.env.TODO_AVAIN) {
+
+const todoAvain = process.env.TODO_AVAIN ||'salainenAvain123' 
+
+if(!todoAvain) {
   logger.fatal('Aseta TODO_AVAIN ympäristömuuttuja')
   process.exit(1)
 }
 
-const mongoUri = process.env.MONGO_URI
+// const mongoUri = process.env.MONGO_URI
 
-if(!mongoUri) {
-  logger.fatal('Aseta MONGO_URI ympäristömuuttuja')
-  process.exit(1)
-}
+// if(!mongoUri) {
+//   logger.fatal('Aseta MONGO_URI ympäristömuuttuja')
+//   process.exit(1)
+// }
 
 
 //
 // Yhdistä MongoDB
 //
-const mongoClient = await mongoose.connect(mongoUri)
+// const mongoClient = await mongoose.connect(mongoUri)
 
-const dbHost = mongoClient.connection.host
-const dbPort = mongoClient.connection.port
-const dbName = mongoClient.connection.name
+// const dbHost = mongoClient.connection.host
+// const dbPort = mongoClient.connection.port
+// const dbName = mongoClient.connection.name
 
-logger.info(`Mongoose: Connected to ${dbHost}:${dbPort}/${dbName}`)
+// logger.info(`Mongoose: Connected to ${dbHost}:${dbPort}/${dbName}`)
 
 
 //
@@ -67,5 +70,6 @@ app.use('/api', apiRoutes)
 
 // Käynnistä HTTP-palvelin
 app.listen(port, () => {
+    console.log(`The backend server is started and listening to port ${port} (Node versio. ${process.versions.node}).`);
     logger.info(`Backend käynnistetty ja kuuntelee portissa ${port} (Node versio ${process.versions.node})`)
 })
