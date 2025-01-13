@@ -2,8 +2,8 @@
 
 set -x
 
-docker rmi esimerkki-backend:prev
-docker tag esimerkki-backend:latest esimerkki-backend:prev
-docker build -t esimerkki-backend:latest .
+docker rmi google-vps-web-project-backend:prev
+docker tag google-vps-web-project-backend:latest google-vps-web-project-backend:prev
+docker build -t google-vps-web-project-backend:latest .
 
 set +x
