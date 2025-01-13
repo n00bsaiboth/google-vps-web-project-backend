@@ -29,24 +29,25 @@ if(!todoAvain) {
   process.exit(1)
 }
 
-// const mongoUri = process.env.MONGO_URI
+const mongoUri = process.env.MONGO_URI
 
-// if(!mongoUri) {
-//   logger.fatal('Aseta MONGO_URI ympäristömuuttuja')
-//   process.exit(1)
-// }
+if(!mongoUri) {
+  logger.fatal('Aseta MONGO_URI ympäristömuuttuja')
+  process.exit(1)
+}
 
 
 //
 // Yhdistä MongoDB
 //
-// const mongoClient = await mongoose.connect(mongoUri)
 
-// const dbHost = mongoClient.connection.host
-// const dbPort = mongoClient.connection.port
-// const dbName = mongoClient.connection.name
+const mongoClient = await mongoose.connect(mongoUri)
 
-// logger.info(`Mongoose: Connected to ${dbHost}:${dbPort}/${dbName}`)
+const dbHost = mongoClient.connection.host
+const dbPort = mongoClient.connection.port
+const dbName = mongoClient.connection.name
+
+logger.info(`Mongoose: Connected to ${dbHost}:${dbPort}/${dbName}`)
 
 
 //
