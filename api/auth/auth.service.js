@@ -13,7 +13,7 @@ export function isAuthenticated(req, res, next) {
     // Oikeasti tässä haluttaisiin validoida esim. evästeestä tuleva JWT
 
     // Tarkistetaan pääsy X-Todo-Avain headerin perusteella
-    const todoAvain = req.headers['x-todo-avain']
+    const todoAvain = req.headers['x-todo-key']
 
     if(!todoAvain) {
         return res.status(401).json({ error: 'Todennusavainta ei löydetty' })

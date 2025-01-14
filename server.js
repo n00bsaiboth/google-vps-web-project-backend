@@ -22,7 +22,7 @@ import logger         from './logger.js'
 // Tarkista vaaditut ympäristömuuttujat
 //
 
-const todoAvain = process.env.TODO_AVAIN || 'salainenAvain123' 
+const todoAvain = process.env.TODO_AVAIN
 
 if(!todoAvain) {
   logger.fatal('Setup the TODO_AVAIN environment variable. ')
